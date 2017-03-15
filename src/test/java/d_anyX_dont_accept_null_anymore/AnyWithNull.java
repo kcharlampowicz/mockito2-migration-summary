@@ -19,9 +19,9 @@ public class AnyWithNull {
 
 	@Test
 	public void test() {
-		when(a.doSthElseOnA(any())).thenReturn(1);
-		//T anyT() / <T> any(Class<T>) are no null
+		when(a.doSthElseOnA(anyInt())).thenReturn(1);
+		//T anyT() / <T> any(Class<T>) not accept null values anymore
 		//anyString, anyInt, anyObject, etc...
-		assertEquals(1, a.doSthElseOnA(1));
+		assertEquals(1, a.doSthElseOnA(null));
 	}
 }

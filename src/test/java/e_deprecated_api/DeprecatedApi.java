@@ -1,9 +1,7 @@
 package e_deprecated_api;
 
-import static org.mockito.Mockito.*;
-
+import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
@@ -15,17 +13,17 @@ public class DeprecatedApi {
 	@Mock
 	private A a;
 
+	@Test
 	public void deprecatedMatchers() {
-/*		org.mockito.Matchers class is deprecated now
-		org.mockito.ArgumetnMatchers should be used instead*/
-
-		when(a.doSthElseOnA(Matchers.anyInt())).thenReturn(0);
+//		org.mockito.Matchers.any(); //class is deprecated now
+//		org.mockito.ArgumentMatchers.any(); //should be used instead
 	}
 
 	public void deprecatedAnyVargs() {
 /*		anyVargs should by replaced by any()*/
 
-		Matchers.anyVararg();// -> ArgumentMatchers.any();
+//		Matchers.anyVararg();
+//		ArgumentMatchers.any();
 	}
 
 	public void deprecatedHamcrestMatchers() {
@@ -37,11 +35,12 @@ public class DeprecatedApi {
 	}
 
 	public void argumentInvocationOnMock() {
-		doAnswer(invocation -> {
-//			return invocation.getArgumentAt(0, Object.class)
-//			return invocation.getArgument(0);
-			return null;
-		}).when(a);
+//		doAnswer(new Answer() {
+//			@Override
+//			public Object answer(InvocationOnMock invocation) throws Throwable {
+//				return invocation.getArgumentAt(0, Object.class);
+//			}
+//		}).when(a);
 	}
 
 }
